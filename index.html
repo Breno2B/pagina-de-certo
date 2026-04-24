@@ -2,7 +2,43 @@
 <html lang="pt-BR">
 <head>
 
-  <!-- UTMify mantido -->
+  <!-- 🔒 BLOQUEIO DO REDIRECT AUTOMÁTICO -->
+  <script>
+    let redirectGuard = true;
+    let botbrainRedirect = null;
+
+    const originalAssign = window.location.assign;
+    const originalReplace = window.location.replace;
+
+    window.location.assign = function(url) {
+      if (redirectGuard) {
+        botbrainRedirect = url;
+        console.log("Redirect capturado:", url);
+      } else {
+        originalAssign.call(window.location, url);
+      }
+    };
+
+    window.location.replace = function(url) {
+      if (redirectGuard) {
+        botbrainRedirect = url;
+      } else {
+        originalReplace.call(window.location, url);
+      }
+    };
+
+    Object.defineProperty(window.location, "href", {
+      set: function(url) {
+        if (redirectGuard) {
+          botbrainRedirect = url;
+        } else {
+          window.location.assign(url);
+        }
+      }
+    });
+  </script>
+
+  <!-- UTMify -->
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
@@ -10,6 +46,8 @@
     async
     defer
   ></script>
+
+  <!-- ⚠️ COLE AQUI O SCRIPT DO BOTBRAIN -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -88,13 +126,17 @@
 
         loading.style.display = "block";
 
-        // pega parâmetros da URL (UTMs)
-        const params = window.location.search;
-
-        const baseUrl = "https://encurtar-link.click/l/bot-a73f3494";
-
         setTimeout(function() {
-          window.location.href = baseUrl + params;
+
+          // libera o redirect
+          redirectGuard = false;
+
+          if (botbrainRedirect) {
+            window.location.href = botbrainRedirect;
+          } else {
+            alert("Erro ao obter destino do bot.");
+          }
+
         }, 800);
       }
     });
