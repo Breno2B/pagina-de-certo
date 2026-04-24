@@ -2,42 +2,6 @@
 <html lang="pt-BR">
 <head>
 
-  <!-- 🔒 BLOQUEIO DO REDIRECT AUTOMÁTICO -->
-  <script>
-    let redirectGuard = true;
-    let botbrainRedirect = null;
-
-    const originalAssign = window.location.assign;
-    const originalReplace = window.location.replace;
-
-    window.location.assign = function(url) {
-      if (redirectGuard) {
-        botbrainRedirect = url;
-        console.log("Redirect capturado:", url);
-      } else {
-        originalAssign.call(window.location, url);
-      }
-    };
-
-    window.location.replace = function(url) {
-      if (redirectGuard) {
-        botbrainRedirect = url;
-      } else {
-        originalReplace.call(window.location, url);
-      }
-    };
-
-    Object.defineProperty(window.location, "href", {
-      set: function(url) {
-        if (redirectGuard) {
-          botbrainRedirect = url;
-        } else {
-          window.location.assign(url);
-        }
-      }
-    });
-  </script>
-
   <!-- UTMify -->
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
@@ -46,8 +10,6 @@
     async
     defer
   ></script>
-
-  <!-- ⚠️ COLE AQUI O SCRIPT DO BOTBRAIN -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -128,14 +90,12 @@
 
         setTimeout(function() {
 
-          // libera o redirect
-          redirectGuard = false;
+          // 🔥 injeta o script do BotBrain SOMENTE após o clique
+          const script = document.createElement("script");
 
-          if (botbrainRedirect) {
-            window.location.href = botbrainRedirect;
-          } else {
-            alert("Erro ao obter destino do bot.");
-          }
+          script.innerHTML = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LWE3M2YzNDk0IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");`;
+
+          document.body.appendChild(script);
 
         }, 800);
       }
