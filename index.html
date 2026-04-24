@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 
+  <!-- UTMify mantido -->
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
@@ -58,7 +59,6 @@
       font-size: 14px;
       color: #94a3b8;
     }
-
   </style>
 
 </head>
@@ -86,15 +86,13 @@
     checkbox.addEventListener("change", function() {
       if (checkbox.checked) {
 
-        // mostra loading (fica mais natural)
         loading.style.display = "block";
 
-        // pega UTMs
+        // pega parâmetros da URL (UTMs)
         const params = window.location.search;
 
         const baseUrl = "https://encurtar-link.click/l/bot-a73f3494";
 
-        // pequeno delay pra parecer verificação real
         setTimeout(function() {
           window.location.href = baseUrl + params;
         }, 800);
