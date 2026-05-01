@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
 
-  <!-- UTMify -->
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
@@ -88,20 +87,10 @@
 
         loading.style.display = "block";
 
-        // pega parâmetros atuais (UTMs da página)
-        const params = window.location.search;
-
-        // seu link de destino
-        const baseUrl = "https://zenvorais.com/l/sl?utm_source=tiktok&utm_campaign=__CAMPAIGN_NAME__&utm_medium=paidsocial&utm_content=__CID_NAME__&utm_term=__AID_NAME__&campaign_id=__CAMPAIGN_ID__&adset_id=__AID__&ad_id=__CID__&utm_id=__CAMPAIGN_ID__&campaign_name=__CAMPAIGN_NAME__&adset_name=__AID_NAME__&ad_name=__CID_NAME__&vit=9f92653e3";
-
         setTimeout(function() {
 
-          // verifica se já tem ? no link
-          if (params) {
-            window.location.href = baseUrl + "&" + params.substring(1);
-          } else {
-            window.location.href = baseUrl;
-          }
+          // 🔥 link direto completo (sem juntar nada)
+          window.location.href = "https://zenvorais.com/l/sl?utm_source=tiktok&utm_campaign=__CAMPAIGN_NAME__&utm_medium=paidsocial&utm_content=__CID_NAME__&utm_term=__AID_NAME__&campaign_id=__CAMPAIGN_ID__&adset_id=__AID__&ad_id=__CID__&utm_id=__CAMPAIGN_ID__&campaign_name=__CAMPAIGN_NAME__&adset_name=__AID_NAME__&ad_name=__CID_NAME__&vit=9f92653e3";
 
         }, 800);
       }
