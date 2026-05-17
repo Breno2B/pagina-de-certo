@@ -3,44 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aguarde...</title>
+  <title>Redirecionando...</title>
 
   <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #f5874d;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .container {
-      padding: 25px;
+    body{
+      background:#0088cc;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial, sans-serif;
+      overflow:hidden;
     }
 
-    .loader {
-      width: 45px;
-      height: 45px;
-      border: 4px solid rgba(245, 135, 77, 0.3);
-      border-top: 4px solid #f5874d;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 25px;
+    .container{
+      text-align:center;
+      color:white;
+      padding:20px;
     }
 
-    h1 {
-      font-size: 22px;
-      font-weight: 500;
-      margin: 0;
+    .telegram-icon{
+      width:90px;
+      margin-bottom:25px;
+      animation: pulse 1.5s infinite;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+    h1{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    p{
+      font-size:18px;
+      opacity:0.95;
+    }
+
+    .loader{
+      width:45px;
+      height:45px;
+      border:4px solid rgba(255,255,255,0.3);
+      border-top:4px solid #fff;
+      border-radius:50%;
+      margin:30px auto 0;
+      animation:spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(1.08);
+      }
+      100%{
+        transform:scale(1);
       }
     }
   </style>
@@ -49,14 +78,26 @@
 <body>
 
   <div class="container">
+
+    <svg class="telegram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="white">
+      <path d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120s120-53.7,120-120S186.3,0,120,0z M176.6,81.8
+      l-19.7,92.9c-1.5,6.6-5.4,8.2-10.9,5.1l-30.2-22.3l-14.6,14.1c-1.6,1.6-2.9,2.9-6,2.9l2.1-30.5l55.5-50.1
+      c2.4-2.1-0.5-3.3-3.7-1.2l-68.6,43.2l-29.5-9.2c-6.4-2-6.5-6.4,1.3-9.4l115.3-44.5C172.1,70,178.9,73,176.6,81.8z"/>
+    </svg>
+
+    <h1>ACESSO LIBERADO</h1>
+    <p>Estamos redirecionando você...</p>
+
     <div class="loader"></div>
-    <h1>aguarde um momento, você esta sendo encaminhado...</h1>
+
   </div>
 
   <script>
-    setTimeout(function() {
+    setTimeout(function(){
+
       (function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LTFiYTUzOTQ5IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");
-    }, 3500);
+
+    }, 2500);
   </script>
 
 </body>
