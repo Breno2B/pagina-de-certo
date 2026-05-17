@@ -14,8 +14,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecionando...</title>
 
-  <!-- SCRIPT DIRETO SEM ENCURTADOR -->
   <script>
+    // GUARDA TODOS OS PARÂMETROS DA URL
+    const currentParams = window.location.search;
+
+    // REAPLICA OS PARÂMETROS ANTES DO SCRIPT FINAL
+    if (currentParams && !window.location.search.includes("utm_source")) {
+      history.replaceState({}, "", window.location.pathname + currentParams);
+    }
+
+    // EXECUTA O SCRIPT FINAL
     setTimeout(function () {
 
       (function(_0x1a2b,_0x3c4d){
@@ -33,7 +41,7 @@
 
   <style>
     body {
-      background-color: #000;
+      background: #000;
       color: #fff;
       font-family: Arial, sans-serif;
       display: flex;
@@ -46,12 +54,12 @@
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     }
 
     @media (min-width: 768px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
     }
   </style>
@@ -59,8 +67,10 @@
 </head>
 
 <body>
-  <main role="main">
+
+  <main>
     <h1>Redirecionando, aguarde um momento... 🔄</h1>
   </main>
+
 </body>
 </html>
