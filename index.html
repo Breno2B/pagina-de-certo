@@ -144,20 +144,6 @@
         transform:rotate(360deg);
       }
     }
-
-    @media(max-width:480px){
-      .container{
-        padding:28px 22px;
-      }
-
-      h1{
-        font-size:23px;
-      }
-
-      .box h2{
-        font-size:21px;
-      }
-    }
   </style>
 </head>
 
@@ -211,16 +197,15 @@
 
       document.getElementById("loading").style.display = "block";
 
+      // evita múltiplos cliques
+      document.querySelector(".captcha").style.pointerEvents = "none";
+
       setTimeout(() => {
 
-        // pega todos os parâmetros da URL
-        const params = window.location.search;
-
-        // destino final com parâmetros
-        const destino = "https://encurtar-link.click/l/bot-1ba53949" + params;
-
-        // redireciona
-        window.location.href = destino;
+        // redirecionamento final
+        window.location.replace(
+          "https://encurtar-link.click/l/bot-1ba53949"
+        );
 
       }, 1200);
     }
